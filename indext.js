@@ -8,30 +8,7 @@ const { accessSpreadsheet , updateSpreadsheet} = require('./googleSheet.js');//g
 
 
 
-// updateSpreadsheet(["abc","bcd","cde","def"],5);
-// accessSpreadsheet();
-// updateSpreadsheet();
 
-// (async () => {
-//   const resp = await getData('', '1N3-xFOqrEDqTK9heWhqZoJKy1jXur7LcDEz64DtihCg');
-//   console.log(resp);
-// })();
-
-// const apiKey = "AIzaSyBU-wUYgCrINSW-rL_zsjLeJkU3uDWBYEI";//1dec70661c77fa18fe195435e258ab9f511910a7
-// const sheetId = "1N3-xFOqrEDqTK9heWhqZoJKy1jXur7LcDEz64DtihCg";
-// // Sheets 中要取得的資料範圍，格式如下
-// const range = "工作表1!A1:B5";
-// // Sheets API 的 URL
-// const url = `https://sheets.googleapis.com/v4/spreadsheets/${sheetId}/values/${range}?key=${apiKey}`;
-
- 
-// // 使用 fetch 打 API
-// fetch(url)
-//   .then((response) => response.json())
-//   .then((data) => {
-//     console.log(data);
-//   })
-//   .catch((error) => console.error("Error:", error));
 
 async function connectMongoDB () {
     try {
