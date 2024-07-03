@@ -140,7 +140,7 @@ client.on(Events.InteractionCreate, async (interaction)=>{
         data = await Todo.find();//.select('-__v -_id')
         while(true){
             let word_class = [];
-            console.log(data)
+            //console.log(data)
             if(data==undefined || data=="")break;
             if(Array.isArray(data)){
                 word_class = data[0].classification;
