@@ -90,6 +90,7 @@ client.once(Events.ClientReady, () => {
 let flag_user=[];
 
 client.on(Events.InteractionCreate, async (interaction)=>{
+    const date = new Date;
     // console.log(interaction)
     if (interaction.commandName === 'ping') {
         await interaction.reply("||說! 你是誰||");
@@ -200,11 +201,11 @@ const PrintAns = (type,data) =>{
     return re_data;
 }
 
-const date = new Date;
 
 client.on(Events.MessageCreate,async (interaction)=>{
     // console.log(interaction);
     if(flag_user.indexOf(interaction.author.username)!=-1){
+        const date = new Date;
         let finishflag = 0;
         // console.log("%s %s",interaction.author.username,interaction.content);
         flag_user.splice(flag_user.indexOf(interaction.author.username),1);
