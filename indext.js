@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 require('dotenv').config(); // 引入 dotenv
 const mongoose = require('mongoose');
 
