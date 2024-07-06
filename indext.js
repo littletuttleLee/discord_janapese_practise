@@ -6,33 +6,6 @@ const { makelist } = require('./makebuttom');
 
 const { accessSpreadsheet , updateSpreadsheet} = require('./googleSheet.js');//getData , 
 
-
-
-// updateSpreadsheet(["abc","bcd","cde","def"],5);
-// accessSpreadsheet();
-// updateSpreadsheet();
-
-// (async () => {
-//   const resp = await getData('', '1N3-xFOqrEDqTK9heWhqZoJKy1jXur7LcDEz64DtihCg');
-//   console.log(resp);
-// })();
-
-// const apiKey = "AIzaSyBU-wUYgCrINSW-rL_zsjLeJkU3uDWBYEI";//1dec70661c77fa18fe195435e258ab9f511910a7
-// const sheetId = "1N3-xFOqrEDqTK9heWhqZoJKy1jXur7LcDEz64DtihCg";
-// // Sheets 中要取得的資料範圍，格式如下
-// const range = "工作表1!A1:B5";
-// // Sheets API 的 URL
-// const url = `https://sheets.googleapis.com/v4/spreadsheets/${sheetId}/values/${range}?key=${apiKey}`;
-
- 
-// // 使用 fetch 打 API
-// fetch(url)
-//   .then((response) => response.json())
-//   .then((data) => {
-//     console.log(data);
-//   })
-//   .catch((error) => console.error("Error:", error));
-
 async function connectMongoDB () {
     try {
         await mongoose.connect(process.env.dburl)
@@ -194,12 +167,12 @@ client.on(Events.InteractionCreate, async (interaction)=>{
             random_data.push(flashdata);
             if(data.length==0)break;
         }
-        interaction.reply({content:PrintAns(type,random_data),ephemeral: true});
+        interaction.reply({content:`下列是詞性 ${interaction.values} 的單字\n`+PrintAns(type,random_data),ephemeral: true});
     }
     if(/class_select_day_/.test(interaction.customId)){
         let data = await Todo.find({date:interaction.values});
         let type = interaction.customId.replace("class_select_day_","");
-        interaction.reply({content:PrintAns(type,data),ephemeral: true})
+        interaction.reply({content:`下列是 ${interaction.values} 那日的單字\n`+PrintAns(type,data),ephemeral: true})
     }
     if(interaction.commandName === "wordlist"){
         interaction.reply({content:"https://docs.google.com/spreadsheets/d/1N3-xFOqrEDqTK9heWhqZoJKy1jXur7LcDEz64DtihCg/edit?usp=sharing",ephemeral: true});
